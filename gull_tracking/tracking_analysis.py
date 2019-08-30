@@ -21,3 +21,17 @@ plt.xlabel("Longitude")
 plt.ylabel("Latitude")
 plt.savefig("outputs/eric_trajectory.pdf")  # save figure as a pdf
 plt.show()
+
+# plot multiple birds
+gull_names = pd.unique(gull_data.bird_name)  # extract names of the gulls
+plt.figure(figsize=(15, 15))
+for bird_name in gull_names:
+    bird_indices = gull_data.bird_name == bird_name
+    x, y = gull_data.longitude[bird_indices], gull_data.latitude[bird_indices]
+    plt.plot(x, y, ".", label=bird_name, alpha=0.5)
+plt.title("Trajectories of All Birds")
+plt.xlabel("Longitude")
+plt.ylabel("Latitude")
+plt.legend(loc="upper left")
+plt.savefig("outputs/three_trajectories.pdf")  # save figure as a pdf
+plt.show()
