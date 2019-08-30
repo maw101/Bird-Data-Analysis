@@ -35,3 +35,15 @@ plt.ylabel("Latitude")
 plt.legend(loc="upper left")
 plt.savefig("outputs/three_trajectories.pdf")  # save figure as a pdf
 plt.show()
+
+# speed of eric
+eric_indices = gull_data.bird_name == "Eric"
+speed = gull_data.speed_2d[eric_indices]
+nan_indices = np.isnan(speed)  # ensures we do not process NaN values
+plt.figure(figsize=(15, 15))
+plt.hist(speed[~nan_indices], bins=np.linspace(0, 30, 20), normed=True)  # plot normalised histogram of Eric's Speed
+plt.title("Eric's 2D Speed Frequency")
+plt.xlabel("2D Speed in m/s")
+plt.ylabel("Speed Frequency")
+plt.savefig("outputs/eric_speed_hist.pdf")  # save figure as a pdf
+plt.show()
