@@ -47,3 +47,9 @@ plt.xlabel("2D Speed in m/s")
 plt.ylabel("Speed Frequency")
 plt.savefig("outputs/eric_speed_hist.pdf")  # save figure as a pdf
 plt.show()
+
+# get timestamps in a format we can process
+gull_data_timestamps = []
+for row in range(len(gull_data)):
+    formatted_date = datetime.datetime.strptime(gull_data.date_time.iloc[row][:-3], "%Y-%m-%d %H:%M:%S")  # -3 to exclude the +hours from time diff
+    gull_data_timestamps.append(formatted_date)
