@@ -107,3 +107,24 @@ plt.title("Cartographic Projection of All Birds")
 plt.legend(loc="upper right")
 plt.savefig("outputs/cartographic_map.pdf")
 plt.show()
+
+# track all migration patterns
+
+## add date column to dataframe
+date_time_data = pd.to_datetime(gull_data.date_time)
+gull_data['date'] = date_time_data.dt.date
+grouped_gulls = gull_data.groupby('bird_name')
+plot_colours = ['#FF0000', '#00FF00', '#0000FF']  # red, green, blue
+
+plt.figure(figsize=(15, 15))
+for bird_name, bird_plot_colour in zip(gull_names, plot_colours):
+    current_bird = grouped_gulls.get_group(bird_name).groupby('date')
+    mean_speed = current_bird.speed_2d.mean()
+    mean_speed.plot(label=bird_name, color=bird_plot_colour, alpha=0.7)
+
+plt.title("Migration Patterns of All Birds")
+plt.xlabel("Date")
+plt.ylabel("Mean Speed in m/s")
+plt.legend(loc="upper right")
+plt.savefig("outputs/migration_patterns_all_birds.pdf")
+plt.show()
