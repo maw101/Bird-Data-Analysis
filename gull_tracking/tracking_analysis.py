@@ -63,3 +63,23 @@ eric_times = eric_data.timestamp
 
 elapsed_time_since_start = [current_time - eric_times[0] for current_time in eric_times]
 elapsed_days_since_start = np.array(elapsed_time_since_start) / datetime.timedelta(days=1)
+
+# calculate daily mean speed
+next_day = 1
+current_day_indices = []
+daily_mean_speed = []
+for (index, day) in enumerate(elapsed_days_since_start):
+    if day < next_day:
+        current_day_indices.append(index)
+    else:  # calculate the daily mean speed
+        daily_mean_speed.append(np.mean(eric_data.speed_2d[current_day_indices]))
+        next_day += 1
+        current_day_indices = []
+
+plt.figure(figsize=(15, 15))
+plt.plot(daily_mean_speed)
+plt.title("Eric's Mean Speed Per Day")
+plt.xlabel("Day")
+plt.ylabel("Mean Speed in m/s")
+plt.savefig("outputs/eric_mean_speed.pdf")
+plt.show()
