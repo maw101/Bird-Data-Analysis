@@ -53,3 +53,6 @@ gull_data_timestamps = []
 for row in range(len(gull_data)):
     formatted_date = datetime.datetime.strptime(gull_data.date_time.iloc[row][:-3], "%Y-%m-%d %H:%M:%S")  # -3 to exclude the +hours from time diff
     gull_data_timestamps.append(formatted_date)
+
+# create pandas series object from timestamps
+gull_data['timestamp'] = pd.Series(gull_data_timestamps, index=gull_data.index)
