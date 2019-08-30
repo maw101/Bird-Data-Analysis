@@ -83,3 +83,27 @@ plt.xlabel("Day")
 plt.ylabel("Mean Speed in m/s")
 plt.savefig("outputs/eric_mean_speed.pdf")
 plt.show()
+
+# plot data for each of the gulls on a cartographic projection
+mercator_projection = ccrs.Mercator()  # specify projection we will be using
+
+plt.figure(figsize=(40, 40))
+ax = plt.axes(projection=mercator_projection)
+ax.set_extent((-25.0, 20.0, 52.0, 10.0))
+
+## add features to map
+ax.add_feature(cfeature.BORDERS)
+ax.add_feature(cfeature.COASTLINE)
+ax.add_feature(cfeature.LAND)
+ax.add_feature(cfeature.OCEAN)
+ax.add_feature(cfeature.STATES)
+
+for bird_name in gull_names:
+    indices = gull_data['bird_name'] == bird_name
+    x, y = gull_data.longitude[indices], gull_data.latitude[indices]
+    ax.plot(x, y, '.', transform=ccrs.Geodetic(), label=bird_name, alpha=0.4)
+
+plt.title("Cartographic Projection of All Birds")
+plt.legend(loc="upper right")
+plt.savefig("outputs/cartographic_map.pdf")
+plt.show()
