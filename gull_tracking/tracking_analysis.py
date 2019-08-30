@@ -56,3 +56,10 @@ for row in range(len(gull_data)):
 
 # create pandas series object from timestamps
 gull_data['timestamp'] = pd.Series(gull_data_timestamps, index=gull_data.index)
+
+# get amount of time elapsed since data collection began for Eric
+eric_data = gull_data[eric_indices]
+eric_times = eric_data.timestamp
+
+elapsed_time_since_start = [current_time - eric_times[0] for current_time in eric_times]
+elapsed_days_since_start = np.array(elapsed_time_since_start) / datetime.timedelta(days=1)
