@@ -14,5 +14,6 @@ I used this data to:
 * Plotted the daily mean speeds for each of the gulls
 * Plotted a Cartographic Projection for each of the gulls
 
+View these outputs [here](/gull_tracking/outputs).
 
 The data used for this project is a subset of a dataset available at [Global Biodiversity Information Facility's Website](https://www.gbif.org/dataset/83e20573-f7dd-4852-9159-21566e1e691e). This is licensed under [Creative Commons 1.0](https://creativecommons.org/publicdomain/zero/1.0/legalcode).
