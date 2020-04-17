@@ -1,7 +1,6 @@
 # Bird Data Analysis
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/f74233ec31484576ba75df1e411e779b)](https://app.codacy.com/manual/maw101/Bird-Data-Analysis?utm_source=github.com&utm_medium=referral&utm_content=maw101/Bird-Data-Analysis&utm_campaign=Badge_Grade_Dashboard)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/f74233ec31484576ba75df1e411e779b)](https://app.codacy.com/manual/maw101/Bird-Data-Analysis?utm_source=github.com&utm_medium=referral&utm_content=maw101/Bird-Data-Analysis&utm_campaign=Badge_Grade_Settings)
 
 An analysis of datasets to gain an insight into the movements of migratory birds.
 This project utilises Python along with pandas, matplotlib, numpy, and the cartopy package.
