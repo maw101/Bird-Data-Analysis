@@ -18,7 +18,9 @@ def plot_trajectory(df, subject_name):
     plt.xlabel("Longitude")
     plt.ylabel("Latitude")
 
-    plt.savefig("outputs/{}_trajectory.pdf".format(subject_name.lower())) # save figure as a pdf
+    base_file_path_no_ext = "outputs/{}_trajectory".format(subject_name.lower())
+    plt.savefig("{}.pdf".format(base_file_path_no_ext)) # save figure as a pdf
+    plt.savefig("{}.png".format(base_file_path_no_ext)) # save figure as a png
     plt.show()
 
 ########################################################################################################################
@@ -38,7 +40,9 @@ def plot_all_trajectories(df, species_name):
     plt.ylabel("Latitude")
     plt.legend(loc="upper left")
 
-    plt.savefig("outputs/all_{}_trajectories.pdf".format(species_name.lower())) # save figure as a pdf
+    base_file_path_no_ext = "outputs/all_{}_trajectories".format(species_name.lower())
+    plt.savefig("{}.pdf".format(base_file_path_no_ext)) # save figure as a pdf
+    plt.savefig("{}.png".format(base_file_path_no_ext)) # save figure as a png
     plt.show()
 
 ########################################################################################################################
@@ -56,7 +60,9 @@ def plot_2d_speed_frequency(df, subject_name):
     plt.xlabel("2D Speed in m/s")
     plt.ylabel("Speed Frequency")
     
-    plt.savefig("outputs/{}_speed_hist.pdf".format(subject_name.lower())) # save figure as a pdf
+    base_file_path_no_ext = "outputs/{}_speed_hist".format(subject_name.lower())
+    plt.savefig("{}.pdf".format(base_file_path_no_ext)) # save figure as a pdf
+    plt.savefig("{}.png".format(base_file_path_no_ext)) # save figure as a png
     plt.show()
 
 ########################################################################################################################
@@ -90,7 +96,9 @@ def plot_daily_mean_speed(df, subject_name):
     plt.xlabel("Day")
     plt.ylabel("Mean Speed in m/s")
     
-    plt.savefig("outputs/{}_mean_speed.pdf".format(subject_name.lower()))
+    base_file_path_no_ext = "outputs/{}_mean_speed".format(subject_name.lower())
+    plt.savefig("{}.pdf".format(base_file_path_no_ext)) # save figure as a pdf
+    plt.savefig("{}.png".format(base_file_path_no_ext)) # save figure as a png
     plt.show()
 
 ########################################################################################################################
@@ -118,7 +126,9 @@ def plot_all_cartographic_projections(df, species_name):
     plt.title("Cartographic Projection of All {}".format(species_name))
     plt.legend(loc="upper right")
 
-    plt.savefig("outputs/cartographic_map.pdf")
+    base_file_path_no_ext = "outputs/cartographic_map"
+    plt.savefig("{}.pdf".format(base_file_path_no_ext)) # save figure as a pdf
+    plt.savefig("{}.png".format(base_file_path_no_ext)) # save figure as a png
     plt.show()
 
 ########################################################################################################################
@@ -143,7 +153,9 @@ def plot_all_migration_patterns(df, species_name):
     plt.ylabel("Mean Speed in m/s")
     plt.legend(loc="upper right")
 
-    plt.savefig("outputs/migration_patterns_all_{}.pdf".format(species_name.lower()))
+    base_file_path_no_ext = "outputs/migration_patterns_all_{}.pdf".format(species_name.lower())
+    plt.savefig("{}.pdf".format(base_file_path_no_ext)) # save figure as a pdf
+    plt.savefig("{}.png".format(base_file_path_no_ext)) # save figure as a png
     plt.show()
 
 ########################################################################################################################
